@@ -59,15 +59,39 @@
 			isa = PBXGroup;
 			children = (
 				D7BC90C424C65C0F008C92B0 /* AppDelegate.swift */,
+				D7BC90DB24C65C8A008C92B0 /* Models */,
+				D7BC90DC24C65C93008C92B0 /* Views */,
+				D7BC90DD24C65CA8008C92B0 /* Controllers */,
 				D7BC90C624C65C0F008C92B0 /* SceneDelegate.swift */,
-				D7BC90C824C65C0F008C92B0 /* ViewController.swift */,
-				D7BC90CA24C65C0F008C92B0 /* Main.storyboard */,
 				D7BC90D024C65C15008C92B0 /* Assets.xcassets */,
 				D7BC90D224C65C15008C92B0 /* LaunchScreen.storyboard */,
 				D7BC90D524C65C15008C92B0 /* Info.plist */,
 				D7BC90CD24C65C0F008C92B0 /* SneakTrack.xcdatamodeld */,
 			);
 			path = SneakTrack;
+			sourceTree = "<group>";
+		};
+		D7BC90DB24C65C8A008C92B0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D7BC90DC24C65C93008C92B0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D7BC90CA24C65C0F008C92B0 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D7BC90DD24C65CA8008C92B0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D7BC90C824C65C0F008C92B0 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
