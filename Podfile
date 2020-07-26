@@ -6,5 +6,8 @@ target 'SneakTrack' do
   use_frameworks!
 
   # Pods for SneakTrack
+  
+  pod 'RealmSwift'
+
 
 end
