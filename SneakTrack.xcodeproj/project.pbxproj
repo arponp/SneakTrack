@@ -3,20 +3,21 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7AC38FD3D15FC5E1BDC5A637 /* Pods_SneakTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5227CD1DF5D7ED692FBEFB9D /* Pods_SneakTrack.framework */; };
 		D7BC90C524C65C0F008C92B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC90C424C65C0F008C92B0 /* AppDelegate.swift */; };
 		D7BC90C724C65C0F008C92B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC90C624C65C0F008C92B0 /* SceneDelegate.swift */; };
-		D7BC90C924C65C0F008C92B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC90C824C65C0F008C92B0 /* ViewController.swift */; };
+		D7BC90C924C65C0F008C92B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC90C824C65C0F008C92B0 /* HomeViewController.swift */; };
 		D7BC90CC24C65C0F008C92B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7BC90CA24C65C0F008C92B0 /* Main.storyboard */; };
 		D7BC90CF24C65C0F008C92B0 /* SneakTrack.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7BC90CD24C65C0F008C92B0 /* SneakTrack.xcdatamodeld */; };
 		D7BC90D124C65C15008C92B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7BC90D024C65C15008C92B0 /* Assets.xcassets */; };
 		D7BC90D424C65C15008C92B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7BC90D224C65C15008C92B0 /* LaunchScreen.storyboard */; };
 		D7D94FB524CA5D7400CE16FF /* ProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D94FB424CA5D7400CE16FF /* ProductData.swift */; };
 		D7D94FB724CA611D00CE16FF /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D94FB624CA611D00CE16FF /* SearchData.swift */; };
+		D7E25C4A24CE40C000F4F149 /* ProductSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E25C4924CE40C000F4F149 /* ProductSearchTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +26,7 @@
 		D7BC90C124C65C0F008C92B0 /* SneakTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SneakTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7BC90C424C65C0F008C92B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7BC90C624C65C0F008C92B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D7BC90C824C65C0F008C92B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D7BC90C824C65C0F008C92B0 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		D7BC90CB24C65C0F008C92B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D7BC90CE24C65C0F008C92B0 /* SneakTrack.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SneakTrack.xcdatamodel; sourceTree = "<group>"; };
 		D7BC90D024C65C15008C92B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -33,6 +34,7 @@
 		D7BC90D524C65C15008C92B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7D94FB424CA5D7400CE16FF /* ProductData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductData.swift; sourceTree = "<group>"; };
 		D7D94FB624CA611D00CE16FF /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
+		D7E25C4924CE40C000F4F149 /* ProductSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchTableViewController.swift; sourceTree = "<group>"; };
 		F9D182C278187A199EB22A6F /* Pods-SneakTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SneakTrack.debug.xcconfig"; path = "Target Support Files/Pods-SneakTrack/Pods-SneakTrack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,7 +56,6 @@
 				F9D182C278187A199EB22A6F /* Pods-SneakTrack.debug.xcconfig */,
 				74B40D6FAAB3E8C4A96DC4AC /* Pods-SneakTrack.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -120,7 +121,8 @@
 		D7BC90DD24C65CA8008C92B0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D7BC90C824C65C0F008C92B0 /* ViewController.swift */,
+				D7BC90C824C65C0F008C92B0 /* HomeViewController.swift */,
+				D7E25C4924CE40C000F4F149 /* ProductSearchTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -242,8 +244,9 @@
 			files = (
 				D7D94FB524CA5D7400CE16FF /* ProductData.swift in Sources */,
 				D7D94FB724CA611D00CE16FF /* SearchData.swift in Sources */,
-				D7BC90C924C65C0F008C92B0 /* ViewController.swift in Sources */,
+				D7BC90C924C65C0F008C92B0 /* HomeViewController.swift in Sources */,
 				D7BC90C524C65C0F008C92B0 /* AppDelegate.swift in Sources */,
+				D7E25C4A24CE40C000F4F149 /* ProductSearchTableViewController.swift in Sources */,
 				D7BC90CF24C65C0F008C92B0 /* SneakTrack.xcdatamodeld in Sources */,
 				D7BC90C724C65C0F008C92B0 /* SceneDelegate.swift in Sources */,
 			);
