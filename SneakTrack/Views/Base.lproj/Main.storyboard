@@ -57,10 +57,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="dsI-85-yQY">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Products" id="dsI-85-yQY">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="G1y-GD-QPN" id="C93-M9-Fbk"/>
+                            </connections>
                         </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProductCell" id="sKX-4T-Tbt">
@@ -78,6 +81,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="vhp-NO-ec6"/>
+                    <connections>
+                        <outlet property="productSearchBar" destination="dsI-85-yQY" id="En3-ai-d9j"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MCF-qt-nGq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

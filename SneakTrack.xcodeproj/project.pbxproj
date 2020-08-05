@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7AC38FD3D15FC5E1BDC5A637 /* Pods_SneakTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5227CD1DF5D7ED692FBEFB9D /* Pods_SneakTrack.framework */; };
+		D76607E324D9182300A15F1B /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76607E224D9182300A15F1B /* ProductModel.swift */; };
 		D7BC90C524C65C0F008C92B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC90C424C65C0F008C92B0 /* AppDelegate.swift */; };
 		D7BC90C724C65C0F008C92B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC90C624C65C0F008C92B0 /* SceneDelegate.swift */; };
 		D7BC90C924C65C0F008C92B0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC90C824C65C0F008C92B0 /* HomeViewController.swift */; };
@@ -18,11 +19,13 @@
 		D7D94FB524CA5D7400CE16FF /* ProductData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D94FB424CA5D7400CE16FF /* ProductData.swift */; };
 		D7D94FB724CA611D00CE16FF /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D94FB624CA611D00CE16FF /* SearchData.swift */; };
 		D7E25C4A24CE40C000F4F149 /* ProductSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7E25C4924CE40C000F4F149 /* ProductSearchTableViewController.swift */; };
+		D7F56EB024DA7135001E8307 /* SearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F56EAF24DA7135001E8307 /* SearchManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5227CD1DF5D7ED692FBEFB9D /* Pods_SneakTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SneakTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B40D6FAAB3E8C4A96DC4AC /* Pods-SneakTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SneakTrack.release.xcconfig"; path = "Target Support Files/Pods-SneakTrack/Pods-SneakTrack.release.xcconfig"; sourceTree = "<group>"; };
+		D76607E224D9182300A15F1B /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		D7BC90C124C65C0F008C92B0 /* SneakTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SneakTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7BC90C424C65C0F008C92B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7BC90C624C65C0F008C92B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,6 +38,7 @@
 		D7D94FB424CA5D7400CE16FF /* ProductData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductData.swift; sourceTree = "<group>"; };
 		D7D94FB624CA611D00CE16FF /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		D7E25C4924CE40C000F4F149 /* ProductSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSearchTableViewController.swift; sourceTree = "<group>"; };
+		D7F56EAF24DA7135001E8307 /* SearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchManager.swift; sourceTree = "<group>"; };
 		F9D182C278187A199EB22A6F /* Pods-SneakTrack.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SneakTrack.debug.xcconfig"; path = "Target Support Files/Pods-SneakTrack/Pods-SneakTrack.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,8 +108,10 @@
 		D7BC90DB24C65C8A008C92B0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				D7D94FB424CA5D7400CE16FF /* ProductData.swift */,
+				D7F56EAF24DA7135001E8307 /* SearchManager.swift */,
 				D7D94FB624CA611D00CE16FF /* SearchData.swift */,
+				D7D94FB424CA5D7400CE16FF /* ProductData.swift */,
+				D76607E224D9182300A15F1B /* ProductModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -243,10 +249,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7D94FB524CA5D7400CE16FF /* ProductData.swift in Sources */,
+				D76607E324D9182300A15F1B /* ProductModel.swift in Sources */,
 				D7D94FB724CA611D00CE16FF /* SearchData.swift in Sources */,
 				D7BC90C924C65C0F008C92B0 /* HomeViewController.swift in Sources */,
 				D7BC90C524C65C0F008C92B0 /* AppDelegate.swift in Sources */,
 				D7E25C4A24CE40C000F4F149 /* ProductSearchTableViewController.swift in Sources */,
+				D7F56EB024DA7135001E8307 /* SearchManager.swift in Sources */,
 				D7BC90CF24C65C0F008C92B0 /* SneakTrack.xcdatamodeld in Sources */,
 				D7BC90C724C65C0F008C92B0 /* SceneDelegate.swift in Sources */,
 			);

@@ -8,8 +8,12 @@
 
 import UIKit
 
+
+
 class ProductSearchTableViewController: UITableViewController {
 
+    @IBOutlet weak var productSearchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,59 +36,52 @@ class ProductSearchTableViewController: UITableViewController {
         return 0
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath)
+}
 
-         Configure the cell...
+//MARK: - UISearchBarMethods
 
-        return cell
+extension ProductSearchTableViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let searchQuery = searchBar.text!
+        if searchQuery == "" {
+            searchBar.placeholder = "Enter a valid search!"
+        } else {
+            let searchQuerySplit = searchQuery.components(separatedBy: " ")
+            print(searchQuerySplit)
+            var urlString = ""
+            if searchQuerySplit.count > 1 {
+                urlString = "http://localhost:3000/stockx/search?keyword="
+                for (index,element) in searchQuerySplit.enumerated() {
+                    if index == 0 {
+                        urlString.append("\(element)%20")
+                    } else if index == (searchQuerySplit.count-1) {
+                        urlString.append(element)
+                    } else {
+                        urlString.append("\(element)%20")
+                    }
+                }
+            } else {
+                urlString = "http://localhost:3000/stockx/search?keyword=\(searchQuery)"
+            }
+            if let url = URL(string: urlString) {
+                let session = URLSession(configuration: .default)
+                let task = session.dataTask(with: url) { (data, response, error) in
+                    if error != nil {
+                        print("Error: \(error!)")
+                    }
+
+                    if let safeData = data {
+                        let decoder = JSONDecoder()
+                        do {
+                            let decodedData = try decoder.decode([SearchData].self, from: safeData)
+                            print(decodedData)
+                        } catch {
+                            print("Error parsing JSON: \(error)")
+                        }
+                    }
+                }
+                task.resume()
+            }
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
