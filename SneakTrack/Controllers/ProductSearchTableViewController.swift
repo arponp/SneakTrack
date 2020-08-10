@@ -11,6 +11,8 @@ import UIKit
 
 
 class ProductSearchTableViewController: UITableViewController {
+    
+    var pData = [SearchData]()
 
     @IBOutlet weak var productSearchBar: UISearchBar!
     
@@ -28,12 +30,29 @@ class ProductSearchTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        print("Number of rows in section: " + String(pData.count))
+        return pData.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "ProductCell")
+        
+        if let imageUrl = URL(string: pData[indexPath.row].media.imageUrl) {
+            let imageData = try! Data(contentsOf: imageUrl)
+            cell.imageView?.image = UIImage(data: imageData)
+        }
+        cell.textLabel?.text = pData[indexPath.row].name
+        cell.detailTextLabel?.text = pData[indexPath.row].brand
+        
+        
+        return cell
+        
+        
     }
 
 }
@@ -71,16 +90,20 @@ extension ProductSearchTableViewController: UISearchBarDelegate {
                     }
 
                     if let safeData = data {
-                        let decoder = JSONDecoder()
                         do {
-                            let decodedData = try decoder.decode([SearchData].self, from: safeData)
-                            print(decodedData)
+                            let decoder = JSONDecoder()
+                            self.pData = try decoder.decode([SearchData].self, from: safeData)
+                            print(self.pData.count)
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
                         } catch {
                             print("Error parsing JSON: \(error)")
                         }
                     }
                 }
                 task.resume()
+                
             }
         }
     }

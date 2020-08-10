@@ -13,7 +13,7 @@ struct SearchData: Codable {
     let brand: String
     let url: String
     let product_category: String
-    let style_id: String
+//    let style_id: String
     let media: Media
 }
 
