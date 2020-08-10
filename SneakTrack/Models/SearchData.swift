@@ -12,13 +12,6 @@ struct SearchData: Codable {
     let name: String
     let brand: String
     let url: String
+    let thumbnail_url: String
     let product_category: String
-//    let style_id: String
-    let media: Media
-}
-
-struct Media: Codable {
-    let imageUrl: String
-    let smallImageUrl: String
-    let thumbUrl: String
 }
