@@ -96,4 +96,8 @@ extension ProductCustomizationViewController: UITableViewDelegate {
         return cell
 
     }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        performSegue(withIdentifier: "goToHome", sender: self)
+//    }
 }

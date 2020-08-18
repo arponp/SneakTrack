@@ -10,5 +10,5 @@ import Foundation
 
 
 struct ProductModel {
-    var productName: String = ""
+    var productData: ProductData
 }
