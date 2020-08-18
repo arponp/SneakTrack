@@ -37,13 +37,13 @@ class ProductCustomizationViewController: UIViewController {
 
                 if let safeData = data {
                     do {
-                        print(safeData)
+//                        print(safeData)
                         let decoder = JSONDecoder()
                         self.pData = try decoder.decode(ProductData.self, from: safeData)
-//                        print(self.pData?.variants.count)
-//                        DispatchQueue.main.async {
-//                            self.tableView.reloadData()
-//                        }
+                        print(self.pData?.variants.count)
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
                     } catch {
                         print("Error parsing JSON: \(error)")
                     }
@@ -64,11 +64,7 @@ extension ProductCustomizationViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        if pData?.variants.count == 0 {
-            return 0
-        } else {
-            return (pData?.variants.count)!
-        }
+        return pData?.variants.count ?? 0
     }
 }
 
@@ -85,7 +81,7 @@ extension ProductCustomizationViewController: UITableViewDelegate {
 
         
         cell.textLabel?.text = currentProduct?.size
-        cell.detailTextLabel?.text = "Highest bid: \(currentProduct?.market.highestBid) & Lowest ask: \(currentProduct?.market.lowestAsk)"
+        cell.detailTextLabel?.text = "Highest bid: \(currentProduct!.market.highestBid) & Lowest ask: \(currentProduct!.market.lowestAsk)"
         cell.accessoryType = .disclosureIndicator
 
         return cell
