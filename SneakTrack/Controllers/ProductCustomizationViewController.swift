@@ -12,10 +12,12 @@ class ProductCustomizationViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var quantityLabel: UILabel!
+    @IBOutlet weak var productTitleTextLabel: UILabel!
     
     var searchData: SearchData?
     var pData: ProductData?
     var quantity = 1
+    var pDataToSend: ProductModel?
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -25,8 +27,12 @@ class ProductCustomizationViewController: UIViewController {
         
         // setting image
         if let imageUrl = URL(string: searchData!.thumbnail_url) {
-            let imageData = try! Data(contentsOf: imageUrl)
-            imageView.image = UIImage(data: imageData)
+            do {
+                let imageData = try Data(contentsOf: imageUrl)
+                imageView.image = UIImage(data: imageData)
+            } catch {
+                print("Error displaying image")
+            }
         }
         
         // making request
@@ -45,7 +51,7 @@ class ProductCustomizationViewController: UIViewController {
 //                        print(self.pData?.variants.count)
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
-                            self.navigationItem.title =  self.pData?.name
+                            self.productTitleTextLabel.text =  self.pData?.name
                         }
                     } catch {
                         print("Error parsing JSON: \(error)")
@@ -90,7 +96,7 @@ extension ProductCustomizationViewController: UITableViewDelegate {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "ProductCell")
 
         
-        cell.textLabel?.text = currentProduct?.size
+        cell.textLabel?.text = "Size: \(String(describing: currentProduct!.size))"
         cell.detailTextLabel?.text = "Highest bid: \(currentProduct!.market.highestBid) & Lowest ask: \(currentProduct!.market.lowestAsk)"
         cell.accessoryType = .disclosureIndicator
 
@@ -99,6 +105,12 @@ extension ProductCustomizationViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.navigationController?.popToRootViewController(animated: true)
+//        self.navigationController?.popToRootViewController(animated: true)
+        pDataToSend = ProductModel(productData: pData!, size: (pData?.variants[indexPath.row].size)!)
+//        print(pDataToSend)
+        if let rootVC = navigationController?.viewControllers.first as? HomeViewController {
+            rootVC.pData.append(pDataToSend!)
+        }
+        navigationController?.popToRootViewController(animated: true)
     }
 }

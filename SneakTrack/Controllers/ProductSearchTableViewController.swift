@@ -42,8 +42,12 @@ extension ProductSearchTableViewController {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "ProductCell")
         
         if let imageUrl = URL(string: pData[indexPath.row].thumbnail_url) {
-            let imageData = try! Data(contentsOf: imageUrl)
-            cell.imageView?.image = UIImage(data: imageData)
+            do {
+                let imageData = try Data(contentsOf: imageUrl)
+                cell.imageView?.image = UIImage(data: imageData)
+            } catch {
+                print("Error displaying image")
+            }
         }
         cell.textLabel?.text = pData[indexPath.row].name
         cell.detailTextLabel?.text = pData[indexPath.row].style_id

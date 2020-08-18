@@ -10,11 +10,12 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-//    var pData: [ProductModel]()
+    var pData = [ProductModel]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        print(pData)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
