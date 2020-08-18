@@ -133,6 +133,19 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="21"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Quantity: 1" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0t-UO-sgL">
+                                <rect key="frame" x="16" y="234" width="100" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="21"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minimumValue="1" maximumValue="5000" translatesAutoresizingMaskIntoConstraints="NO" id="1Tl-pN-bxb">
+                                <rect key="frame" x="140" y="234" width="94" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="quantityStepperChanged:" destination="6DZ-YU-C3Z" eventType="valueChanged" id="a6r-TH-NuV"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="2Pc-Jh-AJD"/>
@@ -140,6 +153,7 @@
                     <navigationItem key="navigationItem" id="jpF-Y6-Ofw"/>
                     <connections>
                         <outlet property="imageView" destination="NjX-Yq-3Xt" id="Sad-2X-sar"/>
+                        <outlet property="quantityLabel" destination="b0t-UO-sgL" id="SJ5-By-Hje"/>
                         <outlet property="tableView" destination="tuS-CX-Csb" id="G9E-6Z-v5C"/>
                     </connections>
                 </viewController>

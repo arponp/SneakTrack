@@ -11,9 +11,11 @@ import UIKit
 class ProductCustomizationViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var quantityLabel: UILabel!
     
     var searchData: SearchData?
     var pData: ProductData?
+    var quantity = 1
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -52,6 +54,13 @@ class ProductCustomizationViewController: UIViewController {
             task.resume()
         }
     }
+    
+    //MARK: - UIStepper Quantity change
+    @IBAction func quantityStepperChanged(_ sender: UIStepper) {
+        quantity = Int(sender.value)
+        quantityLabel.text = "Quantity: \(quantity)"
+    }
+    
     
 }
 
