@@ -13,7 +13,7 @@ import UIKit
 class ProductSearchTableViewController: UITableViewController {
     
     var pData = [SearchData]()
-    
+    var searchData: SearchData?
     
 
     @IBOutlet weak var productSearchBar: UISearchBar!
@@ -40,7 +40,7 @@ extension ProductSearchTableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("Number of rows in section: " + String(pData.count))
+//        print("Number of rows in section: " + String(pData.count))
         return pData.count
     }
     
@@ -58,17 +58,29 @@ extension ProductSearchTableViewController {
         return cell
         
     }
+    
 }
 
 //MARK: - Table view delegate methods
 
 extension ProductSearchTableViewController {
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        searchData = pData[indexPath.row]
         performSegue(withIdentifier: "goToCustomization", sender: self)
     }
 }
 
+//MARK: - Segue Methods
 
+extension ProductSearchTableViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ProductCustomizationViewController {
+            let vc = segue.destination as? ProductCustomizationViewController
+            vc!.searchData = searchData
+        }
+    }
+}
 
 
 //MARK: - UISearchBarMethods
@@ -80,7 +92,7 @@ extension ProductSearchTableViewController: UISearchBarDelegate {
             searchBar.placeholder = "Enter a valid search!"
         } else {
             let searchQuerySplit = searchQuery.components(separatedBy: " ")
-            print(searchQuerySplit)
+//            print(searchQuerySplit)
             var urlString = ""
             if searchQuerySplit.count > 1 {
                 urlString = "http://localhost:3000/stockx/search?keyword="
@@ -107,7 +119,7 @@ extension ProductSearchTableViewController: UISearchBarDelegate {
                         do {
                             let decoder = JSONDecoder()
                             self.pData = try decoder.decode([SearchData].self, from: safeData)
-                            print(self.pData.count)
+//                            print(self.pData.count)
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
                             }
