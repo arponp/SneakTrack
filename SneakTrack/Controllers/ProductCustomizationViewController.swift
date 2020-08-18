@@ -42,9 +42,10 @@ class ProductCustomizationViewController: UIViewController {
 //                        print(safeData)
                         let decoder = JSONDecoder()
                         self.pData = try decoder.decode(ProductData.self, from: safeData)
-                        print(self.pData?.variants.count)
+//                        print(self.pData?.variants.count)
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
+                            self.navigationItem.title =  self.pData?.name
                         }
                     } catch {
                         print("Error parsing JSON: \(error)")
@@ -97,7 +98,7 @@ extension ProductCustomizationViewController: UITableViewDelegate {
 
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        performSegue(withIdentifier: "goToHome", sender: self)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }
