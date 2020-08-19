@@ -15,11 +15,23 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     
     var pData = [ProductModel]()
+    var totalBid = 0
+    var totalAsk = 0
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
         tableView.reloadData()
+        
+        totalAsk = 0
+        totalBid = 0
+        
+        for shoe in pData {
+            totalBid += shoe.productData.variants[shoe.productIndex].market.highestBid
+            totalAsk += shoe.productData.variants[shoe.productIndex].market.lowestAsk
+        }
+        
+        inventoryTotalPriceLabel.text = "$\(totalAsk)"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,7 +63,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             }
         }
         
-        cell.textLabel?.text = pData[indexPath.row].productData.name 
+        cell.textLabel?.text = currentProduct.productData.name
+        cell.detailTextLabel?.text = "Size: \(currentProduct.size) - Bid: \(currentProduct.productData.variants[currentProduct.productIndex].market.highestBid) & Ask: \(currentProduct.productData.variants[currentProduct.productIndex].market.lowestAsk)"
 
         return cell
     }

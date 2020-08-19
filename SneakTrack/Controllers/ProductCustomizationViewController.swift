@@ -102,7 +102,7 @@ extension ProductCustomizationViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        self.navigationController?.popToRootViewController(animated: true)
-        pDataToSend = ProductModel(productData: pData!, size: (pData?.variants[indexPath.row].size)!)
+        pDataToSend = ProductModel(productData: pData!, size: (pData?.variants[indexPath.row].size)!, productIndex: indexPath.row)
 //        print(pDataToSend)
         if let rootVC = navigationController?.viewControllers.first as? HomeViewController {
             rootVC.pData.append(pDataToSend!)

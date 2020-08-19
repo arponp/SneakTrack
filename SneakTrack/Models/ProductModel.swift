@@ -12,5 +12,6 @@ import RealmSwift
 struct ProductModel {
     var productData: ProductData
     var size: String
+    var productIndex: Int
 //    var imageURL: String
 }
