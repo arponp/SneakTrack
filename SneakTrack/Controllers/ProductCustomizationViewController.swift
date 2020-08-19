@@ -26,7 +26,7 @@ class ProductCustomizationViewController: UIViewController {
         let urlString = "http://localhost:3001/stockx/product?urlKey=\(searchData!.url)"
         
         // setting image
-        if let imageUrl = URL(string: searchData!.thumbnail_url) {
+        if let imageUrl = URL(string: searchData!.thumbnail_url!) {
             do {
                 let imageData = try Data(contentsOf: imageUrl)
                 imageView.image = UIImage(data: imageData)
@@ -48,7 +48,7 @@ class ProductCustomizationViewController: UIViewController {
 //                        print(safeData)
                         let decoder = JSONDecoder()
                         self.pData = try decoder.decode(ProductData.self, from: safeData)
-//                        print(self.pData?.variants.count)
+                        self.pData?.thumbnail_url = self.searchData?.thumbnail_url
                         DispatchQueue.main.async {
                             self.tableView.reloadData()
                             self.productTitleTextLabel.text =  self.pData?.name
@@ -73,10 +73,6 @@ class ProductCustomizationViewController: UIViewController {
 
 // MARK: - Table view data source methods
 extension ProductCustomizationViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows

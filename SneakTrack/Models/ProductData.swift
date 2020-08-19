@@ -11,6 +11,7 @@ import Foundation
 struct ProductData: Codable {
     var name: String
     var urlKey: String
+    var thumbnail_url: String?
     var pid: String
     var variants: [Variants]
 }
