@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class ProductSearchTableViewController: UITableViewController {
     
     var pData = [SearchData]()

@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import RealmSwift
 
-class SearchData: Codable {
+struct SearchData: Codable {
     let name: String
     let brand: String
     let url: String

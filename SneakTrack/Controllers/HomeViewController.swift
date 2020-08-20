@@ -22,7 +22,12 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
-        tableView.reloadData()
+        if pData.count > 0 {
+            tableView.separatorStyle = .singleLine
+            tableView.reloadData()
+        } else {
+            tableView.separatorStyle = .none
+        }
         
         totalAsk = 0
         totalBid = 0
