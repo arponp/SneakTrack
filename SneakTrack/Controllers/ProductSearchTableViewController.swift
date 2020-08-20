@@ -25,7 +25,6 @@ class ProductSearchTableViewController: UITableViewController {
 }
 
 // MARK: - Table view data source methods
-
 extension ProductSearchTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -60,7 +59,6 @@ extension ProductSearchTableViewController {
 }
 
 //MARK: - Table view delegate methods
-
 extension ProductSearchTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -70,7 +68,6 @@ extension ProductSearchTableViewController {
 }
 
 //MARK: - Segue Methods
-
 extension ProductSearchTableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is ProductCustomizationViewController {
@@ -82,7 +79,6 @@ extension ProductSearchTableViewController {
 
 
 //MARK: - UISearchBarMethods
-
 extension ProductSearchTableViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let searchQuery = searchBar.text!

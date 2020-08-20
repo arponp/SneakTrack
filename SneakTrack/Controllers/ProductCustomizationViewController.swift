@@ -6,6 +6,7 @@
 //  Copyright © 2020 Arpon Purkayastha. All rights reserved.
 //
 
+
 import UIKit
 
 class ProductCustomizationViewController: UIViewController {
@@ -81,7 +82,6 @@ extension ProductCustomizationViewController: UITableViewDataSource {
 }
 
 //MARK: - tableview delegate methods
-
 extension ProductCustomizationViewController: UITableViewDelegate {
     
 
@@ -105,7 +105,9 @@ extension ProductCustomizationViewController: UITableViewDelegate {
         pDataToSend = ProductModel(productData: pData!, size: (pData?.variants[indexPath.row].size)!, productIndex: indexPath.row)
 //        print(pDataToSend)
         if let rootVC = navigationController?.viewControllers.first as? HomeViewController {
-            rootVC.pData.append(pDataToSend!)
+            for _ in 1...quantity {
+                rootVC.pData.append(pDataToSend!)
+            }
         }
         navigationController?.popToRootViewController(animated: true)
     }
