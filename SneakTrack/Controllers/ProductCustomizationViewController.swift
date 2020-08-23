@@ -12,12 +12,10 @@ import UIKit
 class ProductCustomizationViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var quantityLabel: UILabel!
     @IBOutlet weak var productTitleTextLabel: UILabel!
     
     var searchData: SearchData?
     var pData: ProductData?
-    var quantity = 1
     var pDataToSend: ProductModel?
     
     override func viewDidLoad() {
@@ -63,12 +61,6 @@ class ProductCustomizationViewController: UIViewController {
         }
     }
     
-    //MARK: - UIStepper Quantity change
-    @IBAction func quantityStepperChanged(_ sender: UIStepper) {
-        quantity = Int(sender.value)
-        quantityLabel.text = "Quantity: \(quantity)"
-    }
-    
     
 }
 
@@ -101,14 +93,6 @@ extension ProductCustomizationViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.navigationController?.popToRootViewController(animated: true)
-        pDataToSend = ProductModel(productData: pData!, size: (pData?.variants[indexPath.row].size)!, productIndex: indexPath.row)
-//        print(pDataToSend)
-        if let rootVC = navigationController?.viewControllers.first as? HomeViewController {
-            for _ in 1...quantity {
-                rootVC.pData.append(pDataToSend!)
-            }
-        }
-        navigationController?.popToRootViewController(animated: true)
     }
+        
 }
