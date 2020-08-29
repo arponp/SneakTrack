@@ -22,7 +22,7 @@ class ProductCustomizationViewController: UIViewController {
         tableView.delegate = self
         super.viewDidLoad()
         
-        tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+        tableView.register(UINib(nibName: "ConfigurationProductCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
         tableView.rowHeight = 100
         
@@ -86,7 +86,7 @@ extension ProductCustomizationViewController: UITableViewDelegate {
 //        let currentProduct = pData?.variants[indexPath.row]
         
 //        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "ProductCell")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! MessageCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! ConfigurationProductCell
         
         
 //        cell.textLabel?.text = "Size: \(String(describing: currentProduct!.size))"

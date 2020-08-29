@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7AC38FD3D15FC5E1BDC5A637 /* Pods_SneakTrack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5227CD1DF5D7ED692FBEFB9D /* Pods_SneakTrack.framework */; };
-		D75C5FB424F309CE00AC9F42 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D75C5FB324F309CE00AC9F42 /* MessageCell.xib */; };
-		D75C5FB624F309E800AC9F42 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75C5FB524F309E800AC9F42 /* MessageCell.swift */; };
+		D75C5FB424F309CE00AC9F42 /* ConfigurationProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D75C5FB324F309CE00AC9F42 /* ConfigurationProductCell.xib */; };
+		D75C5FB624F309E800AC9F42 /* ConfigurationProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75C5FB524F309E800AC9F42 /* ConfigurationProductCell.swift */; };
 		D76607E324D9182300A15F1B /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D76607E224D9182300A15F1B /* ProductModel.swift */; };
 		D7BC90C524C65C0F008C92B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC90C424C65C0F008C92B0 /* AppDelegate.swift */; };
 		D7BC90C724C65C0F008C92B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7BC90C624C65C0F008C92B0 /* SceneDelegate.swift */; };
@@ -27,8 +27,8 @@
 /* Begin PBXFileReference section */
 		5227CD1DF5D7ED692FBEFB9D /* Pods_SneakTrack.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SneakTrack.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B40D6FAAB3E8C4A96DC4AC /* Pods-SneakTrack.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SneakTrack.release.xcconfig"; path = "Target Support Files/Pods-SneakTrack/Pods-SneakTrack.release.xcconfig"; sourceTree = "<group>"; };
-		D75C5FB324F309CE00AC9F42 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
-		D75C5FB524F309E800AC9F42 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		D75C5FB324F309CE00AC9F42 /* ConfigurationProductCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigurationProductCell.xib; sourceTree = "<group>"; };
+		D75C5FB524F309E800AC9F42 /* ConfigurationProductCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigurationProductCell.swift; sourceTree = "<group>"; };
 		D76607E224D9182300A15F1B /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		D7BC90C124C65C0F008C92B0 /* SneakTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SneakTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7BC90C424C65C0F008C92B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,8 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				D7BC90CA24C65C0F008C92B0 /* Main.storyboard */,
-				D75C5FB524F309E800AC9F42 /* MessageCell.swift */,
-				D75C5FB324F309CE00AC9F42 /* MessageCell.xib */,
+				D75C5FB524F309E800AC9F42 /* ConfigurationProductCell.swift */,
+				D75C5FB324F309CE00AC9F42 /* ConfigurationProductCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -200,7 +200,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7BC90D424C65C15008C92B0 /* LaunchScreen.storyboard in Resources */,
-				D75C5FB424F309CE00AC9F42 /* MessageCell.xib in Resources */,
+				D75C5FB424F309CE00AC9F42 /* ConfigurationProductCell.xib in Resources */,
 				D7BC90D124C65C15008C92B0 /* Assets.xcassets in Resources */,
 				D7BC90CC24C65C0F008C92B0 /* Main.storyboard in Resources */,
 			);
@@ -256,7 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7BD9F4824E3AEB6005A36BF /* ProductCustomizationViewController.swift in Sources */,
-				D75C5FB624F309E800AC9F42 /* MessageCell.swift in Sources */,
+				D75C5FB624F309E800AC9F42 /* ConfigurationProductCell.swift in Sources */,
 				D7D94FB524CA5D7400CE16FF /* ProductData.swift in Sources */,
 				D76607E324D9182300A15F1B /* ProductModel.swift in Sources */,
 				D7D94FB724CA611D00CE16FF /* SearchData.swift in Sources */,
