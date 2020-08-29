@@ -83,15 +83,11 @@ extension ProductCustomizationViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        let currentProduct = pData?.variants[indexPath.row]
+        let currentProduct = pData!.variants[indexPath.row]
         
-//        let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "ProductCell")
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! ConfigurationProductCell
-        
-        
-//        cell.textLabel?.text = "Size: \(String(describing: currentProduct!.size))"
-//        cell.detailTextLabel?.text = "Highest bid: \(currentProduct!.market.highestBid) & Lowest ask: \(currentProduct!.market.lowestAsk)"
-//        cell.accessoryType = .disclosureIndicator
+        cell.sizeLabel.text = "Size: \(currentProduct.size)"
+        cell.subtitleLabel.text = "Highest bid: \(currentProduct.market.highestBid) & Lowest ask: \(currentProduct.market.lowestAsk)"
 
         return cell
 
