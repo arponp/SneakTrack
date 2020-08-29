@@ -14,6 +14,8 @@ class ConfigurationProductCell: UITableViewCell {
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
     
+    var quantity = 0
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,6 +28,8 @@ class ConfigurationProductCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func sliderValueChanged(_ sender: UISlider) {
+        quantity = Int(sender.value)
+        quantityLabel.text = "Quantity: \(quantity)"
     }
     
 }
