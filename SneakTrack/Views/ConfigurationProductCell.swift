@@ -10,10 +10,10 @@ import UIKit
 
 class ConfigurationProductCell: UITableViewCell {
     
-    @IBOutlet weak var messageBubble: UIView!
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var rightImageView: UIImageView!
-    @IBOutlet weak var leftImageView: UIImageView!
+    @IBOutlet weak var sizeLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +24,8 @@ class ConfigurationProductCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
     }
     
 }
