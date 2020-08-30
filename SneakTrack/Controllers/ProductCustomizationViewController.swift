@@ -105,7 +105,7 @@ extension ProductCustomizationViewController {
         for (index,cell) in cells.enumerated() {
             if (cell as! ConfigurationProductCell).quantity > 0 {
                 let currentProduct = pData!.variants[index]
-                let productModelToSend = ProductModel(productData: pData!, size: currentProduct.size, quantity: (cell as! ConfigurationProductCell).quantity)
+                let productModelToSend = ProductModel(productData: pData!, size: currentProduct.size, quantity: (cell as! ConfigurationProductCell).quantity, productIndex: index)
                 pDataToSend.append(productModelToSend)
             }
         }
