@@ -15,21 +15,21 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     @IBOutlet weak var tableView: UITableView!
     
     
-    var pData = [ProductModel]()
+//    var pData = [ProductModel]()
     var totalBid = 0
     var totalAsk = 0
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
-        if pData.count > 0 {
-            tableView.separatorStyle = .singleLine
-            tableView.reloadData()
-        } else {
-            tableView.separatorStyle = .none
-        }
+//        if pData.count > 0 {
+//            tableView.separatorStyle = .singleLine
+//            tableView.reloadData()
+//        } else {
+//            tableView.separatorStyle = .none
+//        }
         
-        reloadPriceLabel()
+//        reloadPriceLabel()
     
     }
     
@@ -45,37 +45,38 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     //MARK: - tableview methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pData.count
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let currentProduct = pData[indexPath.row]
-        
+//        let currentProduct = pData[indexPath.row]
+//
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "ProductCell")
+//
+//        if let imageUrl = URL(string: currentProduct.productData.thumbnail_url!) {
+//            do {
+//                let imageData = try Data(contentsOf: imageUrl)
+//                cell.imageView?.image = UIImage(data: imageData)
+//            } catch {
+//                print("Error displaying image")
+//            }
+//        }
+//
+//        cell.textLabel?.text = currentProduct.productData.name
+//        cell.detailTextLabel?.text = "Size: \(currentProduct.size) - Quantity: \(currentProduct.quantity) - Bid: \(currentProduct.productData.variants[currentProduct.productIndex].market.highestBid) & Ask: \(currentProduct.productData.variants[currentProduct.productIndex].market.lowestAsk)"
+//        cell.selectionStyle = .none
         
-        if let imageUrl = URL(string: currentProduct.productData.thumbnail_url!) {
-            do {
-                let imageData = try Data(contentsOf: imageUrl)
-                cell.imageView?.image = UIImage(data: imageData)
-            } catch {
-                print("Error displaying image")
-            }
-        }
-        
-        cell.textLabel?.text = currentProduct.productData.name
-        cell.detailTextLabel?.text = "Size: \(currentProduct.size) - Quantity: \(currentProduct.quantity) - Bid: \(currentProduct.productData.variants[currentProduct.productIndex].market.highestBid) & Ask: \(currentProduct.productData.variants[currentProduct.productIndex].market.lowestAsk)"
-
         return cell
     }
     
-    func reloadPriceLabel() {
-        if pData.count > 0 {
-            for (index,shoe) in pData.enumerated() {
-                totalBid += (shoe.productData.variants[index].market.highestBid * shoe.quantity)
-                totalAsk += (shoe.productData.variants[index].market.lowestAsk * shoe.quantity)
-            }
-            inventoryTotalPriceLabel.text = "$\(totalAsk)"
-        }
-    }
+//    func reloadPriceLabel() {
+//        if pData.count > 0 {
+//            for (index,shoe) in pData.enumerated() {
+//                totalBid += (shoe.productData.variants[index].market.highestBid * shoe.quantity)
+//                totalAsk += (shoe.productData.variants[index].market.lowestAsk * shoe.quantity)
+//            }
+//            inventoryTotalPriceLabel.text = "$\(totalAsk)"
+//        }
+//    }
 
 }

@@ -30,7 +30,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="t1N-CT-HAH">
+                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="5" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1N-CT-HAH">
                         <rect key="frame" x="121" y="68" width="119" height="30"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <connections>
@@ -49,6 +49,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="quantityLabel" destination="smC-Cy-v6P" id="j8t-Y1-jX3"/>
+                <outlet property="quantitySlider" destination="t1N-CT-HAH" id="whg-2W-iUt"/>
                 <outlet property="sizeLabel" destination="IWM-Ng-bjM" id="7DD-OK-aIj"/>
                 <outlet property="subtitleLabel" destination="WBI-3j-hQg" id="dLh-Ha-AVi"/>
             </connections>

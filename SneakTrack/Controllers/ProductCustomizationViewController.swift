@@ -22,7 +22,7 @@ class ProductCustomizationViewController: UIViewController {
         tableView.delegate = self
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addToPortfolio))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(modifyPortfolio))
         
         tableView.register(UINib(nibName: "ConfigurationProductCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
@@ -90,6 +90,9 @@ extension ProductCustomizationViewController: UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! ConfigurationProductCell
         cell.sizeLabel.text = "Size: \(currentProduct.size)"
         cell.subtitleLabel.text = "Highest bid: \(currentProduct.market.highestBid) & Lowest ask: \(currentProduct.market.lowestAsk)"
+        cell.selectionStyle = .none
+        cell.pData = pData
+        cell.variant = currentProduct
 
         return cell
 
@@ -99,19 +102,7 @@ extension ProductCustomizationViewController: UITableViewDelegate {
 
 //MARK: - Add to Portfolio Methods
 extension ProductCustomizationViewController {
-    @objc func addToPortfolio() {
-        let cells = tableView.visibleCells
-        
-        for (index,cell) in cells.enumerated() {
-            if (cell as! ConfigurationProductCell).quantity > 0 {
-                let currentProduct = pData!.variants[index]
-                let productModelToSend = ProductModel(productData: pData!, size: currentProduct.size, quantity: (cell as! ConfigurationProductCell).quantity, productIndex: index)
-                pDataToSend.append(productModelToSend)
-            }
-        }
-        if let rootVC = navigationController?.viewControllers.first as? HomeViewController {
-            rootVC.pData = pDataToSend
-        }
+    @objc func modifyPortfolio() {
         navigationController?.popToRootViewController(animated: true)
     }
 }
