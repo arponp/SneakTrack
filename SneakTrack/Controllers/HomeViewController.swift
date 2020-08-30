@@ -29,7 +29,7 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             tableView.separatorStyle = .none
         }
         
-        print(pData)
+        reloadPriceLabel()
     
     }
     
@@ -63,9 +63,19 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         }
         
         cell.textLabel?.text = currentProduct.productData.name
-        cell.detailTextLabel?.text = "Size: \(currentProduct.size) - Bid: \(currentProduct.productData.variants[currentProduct.productIndex].market.highestBid) & Ask: \(currentProduct.productData.variants[currentProduct.productIndex].market.lowestAsk)"
+        cell.detailTextLabel?.text = "Size: \(currentProduct.size) - Quantity: \(currentProduct.quantity) - Bid: \(currentProduct.productData.variants[currentProduct.productIndex].market.highestBid) & Ask: \(currentProduct.productData.variants[currentProduct.productIndex].market.lowestAsk)"
 
         return cell
+    }
+    
+    func reloadPriceLabel() {
+        if pData.count > 0 {
+            for (index,shoe) in pData.enumerated() {
+                totalBid += (shoe.productData.variants[index].market.highestBid * shoe.quantity)
+                totalAsk += (shoe.productData.variants[index].market.lowestAsk * shoe.quantity)
+            }
+            inventoryTotalPriceLabel.text = "$\(totalAsk)"
+        }
     }
 
 }
