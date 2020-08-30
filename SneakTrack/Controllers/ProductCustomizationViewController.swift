@@ -16,11 +16,13 @@ class ProductCustomizationViewController: UIViewController {
     
     var searchData: SearchData?
     var pData: ProductData?
-    var pDataToSend: ProductModel?
+    var pDataToSend = [ProductModel]()
     
     override func viewDidLoad() {
         tableView.delegate = self
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addToPortfolio))
         
         tableView.register(UINib(nibName: "ConfigurationProductCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
@@ -92,9 +94,24 @@ extension ProductCustomizationViewController: UITableViewDelegate {
         return cell
 
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+}
+
+//MARK: - Add to Portfolio Methods
+extension ProductCustomizationViewController {
+    @objc func addToPortfolio() {
+        let cells = tableView.visibleCells
+        
+        for (index,cell) in cells.enumerated() {
+            if (cell as! ConfigurationProductCell).quantity > 0 {
+                let currentProduct = pData!.variants[index]
+                let productModelToSend = ProductModel(productData: pData!, size: currentProduct.size, quantity: (cell as! ConfigurationProductCell).quantity)
+                pDataToSend.append(productModelToSend)
+            }
+        }
+        if let rootVC = navigationController?.viewControllers.first as? HomeViewController {
+            rootVC.pData = pDataToSend
+        }
+        navigationController?.popToRootViewController(animated: true)
     }
-        
 }

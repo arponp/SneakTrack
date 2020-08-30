@@ -12,6 +12,6 @@ struct ProductModel {
     var productData: ProductData
     var size: String
     var quantity: Int
-    var productIndex: Int
+//    var productIndex: Int
 //    var imageURL: String
 }

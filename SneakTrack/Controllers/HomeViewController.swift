@@ -29,15 +29,8 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             tableView.separatorStyle = .none
         }
         
-        totalAsk = 0
-        totalBid = 0
-        
-        for shoe in pData {
-            totalBid += shoe.productData.variants[shoe.productIndex].market.highestBid
-            totalAsk += shoe.productData.variants[shoe.productIndex].market.lowestAsk
-        }
-        
-        inventoryTotalPriceLabel.text = "$\(totalAsk)"
+        print(pData)
+    
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -56,21 +49,21 @@ class HomeViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let currentProduct = pData[indexPath.row]
+//        let currentProduct = pData[indexPath.row]
         
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "ProductCell")
         
-        if let imageUrl = URL(string: currentProduct.productData.thumbnail_url!) {
-            do {
-                let imageData = try Data(contentsOf: imageUrl)
-                cell.imageView?.image = UIImage(data: imageData)
-            } catch {
-                print("Error displaying image")
-            }
-        }
+//        if let imageUrl = URL(string: currentProduct.productData.thumbnail_url!) {
+//            do {
+//                let imageData = try Data(contentsOf: imageUrl)
+//                cell.imageView?.image = UIImage(data: imageData)
+//            } catch {
+//                print("Error displaying image")
+//            }
+//        }
         
-        cell.textLabel?.text = currentProduct.productData.name
-        cell.detailTextLabel?.text = "Size: \(currentProduct.size) - Bid: \(currentProduct.productData.variants[currentProduct.productIndex].market.highestBid) & Ask: \(currentProduct.productData.variants[currentProduct.productIndex].market.lowestAsk)"
+//        cell.textLabel?.text = currentProduct.productData.name
+//        cell.detailTextLabel?.text = "Size: \(currentProduct.size) - Bid: \(currentProduct.productData.variants[currentProduct.productIndex].market.highestBid) & Ask: \(currentProduct.productData.variants[currentProduct.productIndex].market.lowestAsk)"
 
         return cell
     }
