@@ -14,7 +14,8 @@ class ConfigurationProductCell: UITableViewCell {
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var quantityLabel: UILabel!
-    @IBOutlet weak var quantitySlider: UISlider!
+    @IBOutlet weak var quantityStepper: UIStepper!
+    
     
     let realm = try! Realm()
     
@@ -34,19 +35,21 @@ class ConfigurationProductCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    @IBAction func sliderValueChanged(_ sender: UISlider) {
+    
+    @IBAction func stepperValueChanged(_ sender: UIStepper) {
         quantity = Int(sender.value)
-        quantityLabel.text = "Quantity: \(quantity)"
-        
-        let productModelToSend = ProductModel(name: pData!.name, urlKey: pData!.urlKey, thumbnail_url: pData?.thumbnail_url, pid: pData!.pid, size: variant!.size, sid: variant!.uuid, quantity: quantity, highestBid: variant!.market.highestBid, lowestAsk: variant!.market.lowestAsk)
-        
-        save(productModelToSend)
-        
+                quantityLabel.text = "Quantity: \(quantity)"
+                
+                let productModel = ProductModel(name: pData!.name, urlKey: pData!.urlKey, thumbnail_url: pData?.thumbnail_url, pid: pData!.pid, size: variant!.size, sid: variant!.uuid, quantity: quantity, highestBid: variant!.market.highestBid, lowestAsk: variant!.market.lowestAsk)
+                
+        //        write(productModelToSend)
+                let pDataInRealm = read()
     }
     
     
     
-    func save(_ productModel: ProductModel) {
+    
+    func write(_ productModel: ProductModel) {
         
         do {
             try realm.write {
@@ -57,5 +60,23 @@ class ConfigurationProductCell: UITableViewCell {
         }
         
     }
+    
+    func read() -> Results<ProductModel> {
+        return realm.objects(ProductModel.self)
+    }
+    
+    func update(productModel: ProductModel,quantity: Int) {
+        do {
+            try realm.write {
+                if quantity == 0 {
+                    realm.delete(productModel)
+                }
+            }
+        } catch {
+            print("error updating: \(error)")
+        }
+    }
+    
+    
     
 }

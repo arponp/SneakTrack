@@ -26,7 +26,7 @@ class ProductCustomizationViewController: UIViewController, UITableViewDelegate 
         
         tableView.register(UINib(nibName: "ConfigurationProductCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
-        tableView.rowHeight = 100
+        tableView.rowHeight = 110
         
         let urlString = "http://localhost:3001/stockx/product?urlKey=\(searchData!.url)"
         
