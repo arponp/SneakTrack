@@ -38,6 +38,7 @@ extension ProductSearchTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "ProductCell")
         
+        
         if let imageUrl = URL(string: pData[indexPath.row].thumbnail_url!) {
             do {
                 let imageData = try Data(contentsOf: imageUrl)

@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ProductCustomizationViewController: UIViewController {
+class ProductCustomizationViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var productTitleTextLabel: UILabel!
@@ -22,7 +22,7 @@ class ProductCustomizationViewController: UIViewController {
         tableView.delegate = self
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(modifyPortfolio))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(goHome))
         
         tableView.register(UINib(nibName: "ConfigurationProductCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
         
@@ -77,12 +77,7 @@ extension ProductCustomizationViewController: UITableViewDataSource {
         // #warning Incomplete implementation, return the number of rows
         return pData?.variants.count ?? 0
     }
-}
-
-//MARK: - tableview delegate methods
-extension ProductCustomizationViewController: UITableViewDelegate {
     
-
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let currentProduct = pData!.variants[indexPath.row]
@@ -97,12 +92,11 @@ extension ProductCustomizationViewController: UITableViewDelegate {
         return cell
 
     }
-        
 }
 
 //MARK: - Add to Portfolio Methods
 extension ProductCustomizationViewController {
-    @objc func modifyPortfolio() {
+    @objc func goHome() {
         navigationController?.popToRootViewController(animated: true)
     }
 }
